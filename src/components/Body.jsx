@@ -1,21 +1,47 @@
-import React from 'react'
-import RestaurantCard from './RestaurantCard';
-import resList from '../utils/mockData';
-
-
+import React, { useEffect, useState } from "react";
+import RestaurantCard from "./RestaurantCard";
 
 
 const Body = () => {
-    return (
-      <div className="body">
-        <div className="search">Search</div>
-        <div className="res-container">
-          {resList.map((restaurant) => (
-            <RestaurantCard key={restaurant.data.id} resData={restaurant} />
-          ))}
-        </div>
-      </div>
+  
+  let [ResList, setResList] = useState([]);
+  useEffect( () => {
+     fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
+
+    const json = await data.json()
+    setResList(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+
   };
 
-export default Body
+  return (
+    <div className="body">
+      <div className="filter">
+        <button
+          className="filter_btn"
+          onClick={() => {
+            ResList = ResList.filter((res) => res.info.avgRating > 4);
+            setResList(ResList);
+          }}
+        >
+          Filter Top Rated Restaurant
+        </button>
+      </div>
+      <div className="res-container">
+        {ResList.map((restaurant, i) => (
+          <>
+          <RestaurantCard key={i} resData={restaurant.info} />
+       {   console.log(restaurant.info.cloudinaryImageId)}
+          </>
+         ))} 
+      </div>
+    </div>
+  );
+};
+
+export default Body;
