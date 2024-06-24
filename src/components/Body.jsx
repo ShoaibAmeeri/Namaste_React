@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
+import Shimmer from "./Shimmer";
 
 
 const Body = () => {
@@ -18,6 +19,12 @@ const Body = () => {
     setResList(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
 
   };
+
+  if (ResList.length === 0) {
+    return(
+      <Shimmer/>
+    )
+  }
 
   return (
     <div className="body">
@@ -39,6 +46,8 @@ const Body = () => {
        {   console.log(restaurant.info.cloudinaryImageId)}
           </>
          ))} 
+
+         <div className="carddd"></div>
       </div>
     </div>
   );
