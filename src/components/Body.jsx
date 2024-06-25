@@ -13,7 +13,7 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9352403&lng=77.624532&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
 
     const json = await data.json();
@@ -60,8 +60,8 @@ const Body = () => {
         <button
           className="filter_btn"
           onClick={() => {
-            ResList = ResList.filter((res) => res.info.avgRating > 4.3);
-            setResList(ResList);
+            ResList = ResList.filter((res) => res.info.avgRating > 4.1);
+            setFilteredResList(ResList);
           }}
         >
           Filter Top Rated Restaurant
@@ -69,7 +69,7 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredResList.map((restaurant) => (
-          <RestaurantCard key={restaurant.info.id} resData={restaurant.info} />
+          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
         ))}
 
         <div className="carddd"></div>
