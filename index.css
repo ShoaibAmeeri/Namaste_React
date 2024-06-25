@@ -43,7 +43,11 @@
 }
 
 .filter {
-    margin: 10px
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
 }
 
 .res-logo {
@@ -71,4 +75,9 @@
     cursor: pointer;
     
 }
+
+.search_box, .search_btn, .filter_btn{
+    padding: 5px;
+}
+
 
