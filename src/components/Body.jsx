@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   let [ResList, setResList] = useState([]);
   let [filteredResList, setFilteredResList] = useState([]);
-
 
   useEffect(() => {
     fetchData();
@@ -44,13 +44,12 @@ const Body = () => {
             onClick={() => {
               console.log(searchTxt);
 
-             const filteredRes = ResList.filter((res)=>
-               res.info.name.toLowerCase().includes(searchTxt.toLowerCase())
-              )
+              const filteredRes = ResList.filter((res) =>
+                res.info.name.toLowerCase().includes(searchTxt.toLowerCase())
+              );
 
-              setFilteredResList(filteredRes)
+              setFilteredResList(filteredRes);
               // console.log(ResList)
-
             }}
           >
             search
@@ -69,7 +68,9 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredResList.map((restaurant) => (
-          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+          <Link to={"/restaurant/" + restaurant.info.id}>
+            <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+          </Link>
         ))}
 
         <div className="carddd"></div>
