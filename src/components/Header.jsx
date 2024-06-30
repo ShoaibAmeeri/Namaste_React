@@ -6,6 +6,8 @@ const Header = () => {
   const [btnName, setBtnName] = useState("login");
 
   return (
+    <div className="header_container">
+
     <div className="header">
       <div className="logo-container">
         <img className="logo" src={LOGO_URL} />
@@ -23,17 +25,30 @@ const Header = () => {
           </li>
           <li>Cart</li>
 
-          <button
+          <Link
             className="login"
             onClick={() =>
               btnName === "login" ? setBtnName("logout") : setBtnName("login")
             }
-          >
+            to={"/login"}
+            >
             {btnName}
-          </button>
+            </Link>
+
+          <Link
+            className="signup"
+            onClick={() =>
+              btnName === "logout" ? setBtnName("signup") : document.getElementsByClassName("signup").style.display="none"
+            }
+            to={"/signup"}
+            >
+            
+            Sign up
+          </Link>
         </ul>
       </div>
     </div>
+            </div>
   );
 };
 
