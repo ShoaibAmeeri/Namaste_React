@@ -8,6 +8,7 @@ function ItemMenuCard(props) {
       <div className="item_text">
         <p className="item_name">{data.name}</p>
         <p className="item_price">{data.price / 100}Rs</p>
+        
       </div>
       <div className="item_image">
         <img src={CDN_URL + data.imageId} alt="hello swiggy" />

@@ -6,6 +6,10 @@
     margin: 0;padding: 0;   
 }
 
+
+/* --------------------------------- Header CSS ----------------------------------------- */
+
+
 .header_container {
     
     width: 100%;
@@ -21,6 +25,7 @@
     width: 100%;
     position: fixed;
     top: 0px;
+    z-index: 1;
 }
 
 
@@ -48,22 +53,52 @@ Link {
     background-color: aqua;
 }
 
+.login {
+  padding: 10px 15px;
+  width: 100px;
+  font-size: large;
+  cursor: pointer;
+
+}
+
+
+/* --------------------------------- Header CSS End ----------------------------------------- */
+
+
+
+
+
+/* --------------------------------- Restaurant Container CSS  ----------------------------------------- */
+
 .res-container {
     display: flex;
     flex-wrap: wrap;
+    margin: auto;
+    width: 90%;
+
 
 }
 
 .res-card {
     margin: 5px;
-    padding: 5px;
-    width: 200px;
-    height: 420px;
+    font-family: system-ui;
+    
+    width: 230px;
+    padding: 10px;
+   background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-evenly;
+    gap: 10px;
+    /* width: 85%; */
+    
 }
 
 .res-card:hover {
     cursor: pointer;
-    border: 1px solid black;
+    transform: scale(0.94);
+    transition: all ease-in-out 0.3s;
 }
 
 .filter {
@@ -75,9 +110,29 @@ Link {
 }
 
 .res-logo {
-    width: 100%;
-    height: 150px;
+    width: 218px;
+    height: 186px;
+    border-radius: 20px;
 }
+
+.res-card h3{
+  font-size: large;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+ 
+.rating{
+  width:65%;
+  font-size: large;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+}
+
+
+
+
 
 .shimer_container {
     display: flex;
@@ -92,13 +147,7 @@ Link {
     height: 380px;
 }
 
-.login {
-    padding: 10px 15px;
-    width: 100px;
-    font-size: large;
-    cursor: pointer;
 
-}
 
 .search_box, .search_btn, .filter_btn {
     padding: 5px;
@@ -114,7 +163,7 @@ Link {
     height: 200px;
     padding: 10px;
     justify-content: space-between;
-    align-items: center;
+    align-items:center ;
 
 }
 
@@ -127,8 +176,17 @@ Link {
 
 .item_image img {
     width: 200px;
+}  
+.item_image {
+margin: 10px;  
 }
 
+
+
+
+/* --------------------------------- Restaurant Container CSS end  ----------------------------------------- */
+
+/* --------------------------------- Signup Container CSS   ----------------------------------------- */
 
 .container {
     
@@ -291,3 +349,6 @@ Link {
       display: none;
     }
   }
+
+  /* --------------------------------- Signup Container CSS end  ----------------------------------------- */
+
