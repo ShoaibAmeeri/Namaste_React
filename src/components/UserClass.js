@@ -1,18 +1,23 @@
-import React from "React";
-
-
+import React from "react";
 
 class UserClass extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log(props);
 
-    constructor(props){
-        super(props)
-        console.log(props)
-    }
+    this.state = {
+      count: 0,
+      count2: 10,
+    };
+  }
 
   render() {
-    const {name, location, contact} = this.props
+    const { name, location, contact } = this.props;
+    const{count, count2} = this.state
     return (
       <div className="user_card">
+        <h1> count {count}</h1>
+        <h1> count {count2}</h1>
         <h2>name : {name}</h2>
         <h3>location : {location}</h3>
         <h4>Contact : {contact}</h4>
@@ -21,4 +26,4 @@ class UserClass extends React.Component {
   }
 }
 
-export default UserClass
+export default UserClass;
