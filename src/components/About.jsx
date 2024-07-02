@@ -4,7 +4,7 @@ import UserClass from "./UserClass";
 class About extends React.Component {
   constructor(props) {
     super(props);
-    console.log("parent constructor mounted ");
+    console.log("parent constructor call ");
   }
 
   componentDidMount() {
@@ -18,7 +18,12 @@ class About extends React.Component {
         <h1>About</h1>
         <h2>This is Namaste React Series</h2>
         <UserClass
-          name="Muhammad Shoaib"
+          name="first"
+          location="Faislabad"
+          contact="shoaib@gmail.com"
+        />
+        <UserClass
+          name="second"
           location="Faislabad"
           contact="shoaib@gmail.com"
         />
@@ -28,3 +33,28 @@ class About extends React.Component {
 }
 
 export default About;
+
+
+
+
+
+/**
+ * parent cunstructor call
+ * parent rendered
+ * 
+ * --first cunstructor call
+ * --first rendered
+ * --Address cunstroctor call 
+ * --Address rendered
+ * 
+ * --2nd cunstructor call
+ * --2nd rendered
+ * --Address cunstroctor call 
+ * --Address rendered
+ * 
+ * 
+ * --first child did mount
+ * --second child did mount
+ * --parent did mount
+ *  */ 
+
