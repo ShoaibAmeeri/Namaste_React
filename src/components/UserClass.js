@@ -1,46 +1,41 @@
 import React from "react";
-import Address from "./Address";
 
 class UserClass extends React.Component {
   constructor(props) {
     super(props);
-    // console.log(props);
+    this.state = {
+      userInfo: {
+        name: "dummy",
+        location: "default",
+      },
+    };
 
-    // this.state = {
-    //   count: 0,
-    //   count2: 10,
-    // };
+   
 
-    console.log(this.props.name + "constructor call")
+    console.log(this.state.userInfo.name + "constructor call");
   }
 
-  componentDidMount(){
-    console.log(this.props.name + "Child did mounted")
+  async componentDidMount() {
+    console.log(this.props.name + "Child did mounted");
+    const data = await fetch("https://api.github.com/users/ShoaibAmeeri");
+    const json = await data.json();
+
+    this.setState({ userInfo: json });
+    console.log(json)
+    console.log(this.state.userInfo)
   }
-  
+
   render() {
-    console.log(this.props.name + " rendered")
-    const { name, location, contact } = this.props;
-    // let{count, count2} = this.state
+    console.log(" rendered");
+    const { name, location, avatar_url } = this.state.userInfo;
     return (
       <div className="user_card">
-       <>
-        {/* <h1> count {count}</h1>
-        <h1> count {count2}</h1> */}
-        {/* <button onClick={()=>{
-          this.setState({
-            count : ++this.state.count,
-            count2 : ++this.state.count2
-            })
-            console.log(count)
-            }}>count Increment</button> */}
-            </>
-      
-        <h2>name : {name}</h2>
-        <h3>location : {location}</h3>
-        <h4>Contact : {contact}</h4>
-
-        <Address />
+        <img className="user_avatar" src={avatar_url} />
+        <div className="details">
+          <h2>name : {name}</h2>
+          <h3>location : {location}</h3>
+          <h4>Contact : @ShoaibAmeeri56</h4>
+        </div>
       </div>
     );
   }

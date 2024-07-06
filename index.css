@@ -23,7 +23,7 @@
     border: 1px solid black;
     display: flex;
     width: 100%;
-    position: fixed;
+    position: sticky;
     top: 0px;
     z-index: 1;
 }
@@ -361,6 +361,20 @@ margin: 10px;
     flex-direction: column;
     gap: 10px;
     margin: 20px;
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
 
   }
 
+  .user_card .details{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+
+  .user_avatar{
+    width: 240px;
+  }
