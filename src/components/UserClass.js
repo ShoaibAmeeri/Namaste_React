@@ -21,8 +21,12 @@ class UserClass extends React.Component {
     const json = await data.json();
 
     this.setState({ userInfo: json });
-    console.log(json)
-    console.log(this.state.userInfo)
+    // console.log(json)
+    // console.log(this.state.userInfo)
+  }
+
+  componentDidUpdate(){
+    console.log("component did update");
   }
 
   render() {
