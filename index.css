@@ -33,6 +33,15 @@
     width: 200px;
 }
 
+.online {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-top: 3px;
+  
+}
+
 .nav-items {
     padding: 0px 20px;
 }
