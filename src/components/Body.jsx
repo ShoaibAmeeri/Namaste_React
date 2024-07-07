@@ -2,32 +2,32 @@ import React, { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
+
+import useRestaurantList from "../utils/useRestaurantList";
 
 const Body = () => {
-  let [ResList, setResList] = useState([]);
-  let [filteredResList, setFilteredResList] = useState([]);
+  let { resList, filteredResList, setFilteredResList } = useRestaurantList();
+  const [searchTxt, setSearchTxt] = useState("");
+  const onlineStatus = useOnlineStatus();
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    const data = await fetch(
-      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9352403&lng=77.624532&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+  const searchHandler = () => {
+    const filteredRes = resList.filter((res) =>
+      res.info.name.toLowerCase().includes(searchTxt.toLowerCase())
     );
-
-    const json = await data.json();
-    setResList(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setFilteredResList(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+    setFilteredResList(filteredRes);
+  };
+  const topResHandler = () => {
+    resList = resList.filter((res) => res.info.avgRating > 4.1);
+    setFilteredResList(resList);
   };
 
-  const [searchTxt, setSearchTxt] = useState("");
+  if (onlineStatus === false)
+    return (
+      <h1>oopss. you are offline please check you internet connection....</h1>
+    );
 
-  return ResList.length === 0 ? (
+  return resList.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body">
@@ -39,30 +39,12 @@ const Body = () => {
             value={searchTxt}
             onChange={(e) => setSearchTxt(e.target.value)}
           />
-          <button
-            className="search_btn"
-            onClick={() => {
-              console.log(searchTxt);
-
-              const filteredRes = ResList.filter((res) =>
-                res.info.name.toLowerCase().includes(searchTxt.toLowerCase())
-              );
-
-              setFilteredResList(filteredRes);
-              // console.log(ResList)
-            }}
-          >
+          <button className="search_btn" onClick={searchHandler}>
             search
           </button>
         </div>
 
-        <button
-          className="filter_btn"
-          onClick={() => {
-            ResList = ResList.filter((res) => res.info.avgRating > 4.1);
-            setFilteredResList(ResList);
-          }}
-        >
+        <button className="filter_btn" onClick={topResHandler}>
           Filter Top Rated Restaurant
         </button>
       </div>
@@ -72,8 +54,6 @@ const Body = () => {
             <RestaurantCard key={restaurant.info.id} resData={restaurant} />
           </Link>
         ))}
-
-        <div className="carddd"></div>
       </div>
     </div>
   );
