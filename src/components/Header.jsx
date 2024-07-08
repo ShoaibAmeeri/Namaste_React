@@ -23,6 +23,9 @@ const Header = () => {
           {/* <li> Online_Status :  <span className="online" style={{backgroundColor : onlineStatus ? "green" : "red"}}></span> </li> */}
           <li> Online Status : {onlineStatus ? "✅" :  "🔴" } </li>
           <li>
+            <Link to={"/grocery"}>Grocery</Link>
+          </li>
+          <li>
             <Link to={"/"}>Home</Link>
           </li>
           <li>

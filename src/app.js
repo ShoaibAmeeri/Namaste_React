@@ -9,6 +9,7 @@ import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import SignUp from "./components/Signup";
 import Login from "./components/Login";
+import Grocery from "./components/Grocery";
 
 
 
@@ -58,6 +59,10 @@ const appRouter = createBrowserRouter([
       {
         path:"/login",
         element: <Login />
+      },
+      {
+        path:"/grocery",
+        element: <Grocery/>
       },
     ],
 
