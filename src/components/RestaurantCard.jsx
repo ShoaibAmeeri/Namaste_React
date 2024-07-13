@@ -8,9 +8,9 @@ const RestaurantCard = (props) => {
     resData?.info;
 
   return (
-    <div
-      className="m-3 p-4 w-[239px] h-[400px]"
-      style={{ backgroundColor: "#f0f0f0" }}
+    <div 
+      className="m-3 p-4 w-[239px] h-[400px] bg-gray-100 hover:bg-gray-200 transition-all rounded-lg "
+      
     >
       <img
         className="h-[170px] w-[100%] rounded-lg"
