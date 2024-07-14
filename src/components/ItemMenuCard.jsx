@@ -10,7 +10,7 @@ function ItemMenuCard({data}) {
  
   return (
     <div className="menu_card w-[100%] mx-auto flex justify-between items-center border-t border-t-black py-3">
-      <div className="item_text w-9/12">
+      <div className="item_text w-9/12 ">
         <p className="font-bold text-lg ">{name}</p>
         <p className="font-semibold text-lg ">RS.{Math.round(price/100)} </p>
         <p className="font-bold text-base  mt-2 text-green-600">

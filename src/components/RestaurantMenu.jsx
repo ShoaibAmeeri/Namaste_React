@@ -28,8 +28,8 @@ function RestaurantMenu() {
 
   return (
     <div className="">
-      <h1 className="font-bold my-6 text-2xl">{name}</h1>
-      <p className="font-bold text-lg">{cuisines.join(", ")}</p>
+      <h1 className="font-bold my-6 text-2xl text-center" >{name}</h1>
+      <p className="font-bold text-lg text-center">{cuisines.join(", ")}</p>
       {catagories.map((e) => (
         <RestaurantCatagory data={e.card.card} />
       ))}
