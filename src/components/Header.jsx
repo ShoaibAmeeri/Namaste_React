@@ -5,8 +5,6 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("login");
-  const [onClr, setOnClr] = useState("red");
-
   const onlineStatus = useOnlineStatus();
 
   return (
@@ -43,7 +41,6 @@ const Header = () => {
               {btnName}
             </Link>
           </li>
-
           <Link
             className="signup"
             onClick={() =>

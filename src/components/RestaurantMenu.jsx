@@ -20,39 +20,38 @@ function RestaurantMenu() {
 
   return (
     <div className="menu w-[60%] mx-auto ">
-      <div className="w-[60%] h-[200px] p-5 my-5 rounded-2xl bg-green-500 flex flex-col gap-4 text-2xl text-white font-bold" >
-
-      <h1>{name}</h1>
-      <h3>{cuisines.join(", ")}</h3>
-      <p>{costForTwoMessage}</p>
+      <div className="w-[60%] h-[200px] p-5 my-5 rounded-2xl bg-green-500 flex flex-col gap-4 text-2xl text-white font-bold">
+        <h1>{name}</h1>
+        <h3>{cuisines.join(", ")}</h3>
+        <p>{costForTwoMessage}</p>
       </div>
-      <h2 className="font-bold text-white text-2xl my-10 text-center bg-green-800">Menu</h2>
+      <h2 className="font-bold text-white text-2xl my-10 text-center bg-green-800">
+        Menu
+      </h2>
       <ul className="">
         {categories
           ? categories.map((category) => (
-              
-                  <li className="mb-44 w-[100%] mx-auto">
-                    <h1 className="font-bold text-3xl text-green-500 my-2"> Catagory : {category.title}</h1>
-                    <ul className="">
-
-                    {category.itemCards.map((item) => (
-                      <>
-                        <li key={item.card.info.id}>
-                          <ItemMenuCard data={item.card.info} />
-                        </li>
-                        <hr />
-                      </>
-                    ))}
-                    </ul>
-                  </li>
-              
+              <li className="mb-44 w-[100%] mx-auto">
+                <h1 className="font-bold text-3xl text-green-500 my-2">
+                  {" "}
+                  Catagory : {category.title}
+                </h1>
+                <ul className="">
+                  {category.itemCards.map((item) => (
+                    <>
+                      <li key={item.card.info.id}>
+                        <ItemMenuCard data={item.card.info} />
+                      </li>
+                      <hr />
+                    </>
+                  ))}
+                </ul>
+              </li>
             ))
           : itemCards.map((item) => (
               <li key={item.card.info.id}>
                 <ItemMenuCard data={item.card.info} />
-                {/* <h1>{item}</h1> */}
-
-                {console.log(item.card)}
+             
               </li>
             ))}
       </ul>
