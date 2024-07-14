@@ -1,25 +1,26 @@
 import React from "react";
 import { CDN_URL } from "../utils/constans";
 
-function ItemMenuCard(props) {
-  const { data } = props;
+function ItemMenuCard({data}) {
+ 
   console.log(data);
-  const { name, price, imageId, ratings } = data;
+  const { name, price, imageId, ratings,description } = data.card.info;
   const { rating, ratingCountV2 } = ratings.aggregatedRating;
-  console.log(data);
+ 
   return (
     <div className="menu_card w-[100%] mx-auto flex justify-between items-center border-t border-t-black py-3">
-      <div className="item_text">
+      <div className="item_text w-9/12">
         <p className="font-bold text-lg ">{name}</p>
-        <p className="font-semibold text-lg ">Rs.{price / 10}</p>
+        <p className="font-semibold text-lg ">RS.{price/100} </p>
         <p className="font-bold text-base  mt-2 text-green-600">
           ⭐{rating}
           <span className="text-gray-400 font-normal">
-            {"(" + ratingCountV2 + ")"}
+           { "(" + ratingCountV2 + ")"}
           </span>
         </p>
+        <p>{description.substr(0,110) + '...'}</p>
       </div>
-      <div className="item_image w-[170px] text-center relative">
+      <div className="item_image w-3/12 text-center relative">
         <img
           className="w-[170px] rounded-xl h-[140px]"
           src={CDN_URL + imageId}
