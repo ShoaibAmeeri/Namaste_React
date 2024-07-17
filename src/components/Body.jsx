@@ -57,8 +57,8 @@ const Body = () => {
         </div>
       </div>
       <div className="flex flex-wrap">
-        {filteredResList.map((restaurant) => (
-          <Link to={"/restaurant/" + restaurant.info.id}>
+        {filteredResList.map((restaurant, i) => (
+          <Link to={"/restaurant/" + restaurant.info.id} key={i}>
             {restaurant.info.avgRatingString > 4.2 ? (
               <RestaurantCardPromoted
                 key={restaurant.info.id}
