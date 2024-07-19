@@ -3,10 +3,10 @@ import { CDN_URL } from "../utils/constans";
 
 function ItemMenuCard({data}) {
  
-  console.log(data);
+  // console.log(data);
   const { name, price, imageId, ratings,description } = data.card.info;
   const { rating, ratingCountV2 } = ratings.aggregatedRating;
-  console.log(typeof(price))
+  // console.log(typeof(price))
  
   return (
     <div className="menu_card w-[100%] mx-auto flex justify-between items-center border-t border-t-black py-3">
