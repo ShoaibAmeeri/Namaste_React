@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
 import useRestaurantList from "../utils/useRestaurantList";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
@@ -22,6 +23,8 @@ const Body = () => {
     resList = resList.filter((res) => res.info.avgRating > 4.1);
     setFilteredResList(resList);
   };
+
+  const { setUsername, LoggedInUser } = useContext(UserContext);
 
   if (onlineStatus === false)
     return (
@@ -46,6 +49,12 @@ const Body = () => {
           >
             search
           </button>
+          <input
+            type="text"
+            className="search_box border-2 border-black rounded-md rounded-e-none "
+            value={LoggedInUser}
+            onChange={(e) => setUsername(e.target.value)}
+          />
         </div>
         <div className="p-4 m-4 ms-0">
           <button

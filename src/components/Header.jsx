@@ -4,13 +4,12 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 
-
 const Header = () => {
   const [btnName, setBtnName] = useState("login");
   const onlineStatus = useOnlineStatus();
 
-  const {username} = useContext(UserContext)
- 
+  const { LoggedInUser } = useContext(UserContext);
+
   return (
     <div className="flex justify-between bg-pink-100 shadow-lg p-3">
       <div className="">
@@ -45,8 +44,8 @@ const Header = () => {
               {btnName}
             </Link>
           </li>
-          <li className="font-semibold text-xl">
-            {username}
+          <li className="font-semibold text-xl w-36 overflow-hidden h-8 ">
+            {LoggedInUser}
           </li>
         </ul>
       </div>

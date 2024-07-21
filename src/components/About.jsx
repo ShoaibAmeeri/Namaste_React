@@ -23,7 +23,7 @@ class About extends React.Component {
         <h1>About</h1>
         <h2>{
           <UserContext.Consumer>
-            {({username})=> <h1 className="text-lg"> {username}</h1>}
+            {({LoggedInUser})=> <h1 className="text-lg"> {LoggedInUser}</h1>}
           </UserContext.Consumer>
           }</h2>
         <h2>This is Namaste React Series</h2>
