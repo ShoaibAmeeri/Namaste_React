@@ -7,7 +7,8 @@ import { useParams } from "react-router-dom";
 
 function RestaurantMenu() {
 
-  const [showIndex, setShowIndex] = useState(0)
+  const [showIndex, setShowIndex] = useState(null)
+  // const [showItems, setShowItems] = useState(false)
   const { resId } = useParams();
   const resInfo = useRestaurantMenu(resId);
   if (resInfo === null) return <Shimmer />;
@@ -32,8 +33,9 @@ function RestaurantMenu() {
         <RestaurantCatagory
           key={e.card.card.title}
           data={e.card.card}
-          showItems={i === showIndex ? true : false}
+          showItems={ i ===showIndex ? true : false}
           setShowIndex = {()=>setShowIndex(i)}
+          // setShowItems = {setShowItems}
         />
       ))}
     </div>
