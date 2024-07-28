@@ -6,7 +6,6 @@ import { useParams } from "react-router-dom";
 
 function RestaurantMenu() {
   const [showIndex, setShowIndex] = useState(null);
-  // const [showItems, setShowItems] = useState(false)
   const { resId } = useParams();
   const resInfo = useRestaurantMenu(resId);
   if (resInfo === null) return <Shimmer />;
