@@ -6,6 +6,8 @@ function RestaurantCatagory({ data, showItems, setShowIndex }) {
     setShowIndex();
   };
 
+
+
   return (
     <div
       className="w-6/12 mx-auto my-4 bg-gray-50 border shadow-lg p-4 cursor-pointer"
@@ -17,7 +19,9 @@ function RestaurantCatagory({ data, showItems, setShowIndex }) {
         </span>
         <span>⬇</span>
       </div>
-      {data.itemCards.map((i) => showItems && <ItemMenuCard data={i} />)}
+      {data.itemCards.map(
+        (i) => showItems && <ItemMenuCard data={i} key={i.card.info.id} />
+      )}
     </div>
   );
 }
