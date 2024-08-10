@@ -14,6 +14,8 @@ const Header = () => {
   const { LoggedInUser } = useContext(UserContext);
   const cartItems = useSelector((store)=>store.cart.items)
 
+  console.log(cartItems);
+  
 
   return (
     <div className="flex justify-between bg-pink-100 shadow-lg p-3">
@@ -37,7 +39,8 @@ const Header = () => {
           <li className="px-4">
             <Link to={"/contact"}>Contact Us</Link>
           </li>
-          <li className="px-4">Cart ({cartItems.length} items) </li>
+          <li className="px-4">
+            <Link to={"/cart"}> Cart ({cartItems.length} items)</Link> </li>
           <li className="px-4">
             <Link
               className="login"

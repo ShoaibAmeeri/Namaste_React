@@ -1,10 +1,19 @@
 import React, { useContext } from "react";
 import { CDN_URL } from "../utils/constans";
 import UserContext from "../utils/UserContext";
-
+import { useDispatch } from "react-redux";
+import {addItem} from "../utils/cartSlice"
 function ItemMenuCard({ data }) {
+
+  const dispatch = useDispatch()
+
   const { name, price, imageId, ratings, description } = data.card.info;
   const { rating, ratingCountV2 } = ratings.aggregatedRating;
+
+
+  const handleAddItem = (data) => {
+    dispatch(addItem(data.name))
+  }
 
   const data2 = useContext(UserContext);
   return (
@@ -29,7 +38,9 @@ function ItemMenuCard({ data }) {
           src={CDN_URL + imageId}
           alt="hello swiggy"
         />
-        <button className="font-bold text-xl text-green-500 border bg-white px-7 py-2 rounded-lg absolute top-28 left-9 z-10 shadow-lg">
+        <button className="font-bold text-xl text-green-500 border bg-white px-7 py-2 rounded-lg absolute top-28 left-9 z-10 shadow-lg"
+        onClick={()=>handleAddItem(data.card.info)}
+        >
           ADD
         </button>
         <p className="font-mono text-gray-500 mt-3">customizable</p>

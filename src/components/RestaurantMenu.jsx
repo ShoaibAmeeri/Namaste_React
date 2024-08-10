@@ -22,9 +22,7 @@ function RestaurantMenu() {
       setShowIndex(prevIndex === index ? null : index)
     );
   };
-  const categories =
-    resInfo.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card
-      .categories;
+
   const { name, cuisines, costForTwoMessage } = resInfo.cards[2].card.card.info;
 
   return (
