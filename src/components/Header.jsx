@@ -6,13 +6,15 @@ import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
 
 
+
 const Header = () => {
   const [btnName, setBtnName] = useState("login");
   const onlineStatus = useOnlineStatus();
 
   const { LoggedInUser } = useContext(UserContext);
+  const cartItems = useSelector((store)=>store.cart.items)
 
-  const cartItems = useSelector((store)=> store.cart.items)
+
   return (
     <div className="flex justify-between bg-pink-100 shadow-lg p-3">
       <div className="">
