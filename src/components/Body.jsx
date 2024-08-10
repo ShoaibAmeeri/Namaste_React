@@ -35,7 +35,7 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filter flex">
+      <div className="flex">
         <div className="search p-4 m-4">
           <input
             type="text"
@@ -65,7 +65,7 @@ const Body = () => {
           </button>
         </div>
       </div>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap mx-auto w-[85%] ">
         {filteredResList.map((restaurant, i) => (
           <Link to={"/restaurant/" + restaurant.info.id} key={i}>
             {restaurant.info.avgRatingString > 4.2 ? (
