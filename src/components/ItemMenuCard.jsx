@@ -12,16 +12,14 @@ function ItemMenuCard({ data }) {
 
 
   const handleAddItem = (data) => {
-    dispatch(addItem(data.name))
+    dispatch(addItem(data))
   }
 
   const data2 = useContext(UserContext);
   return (
     <div className="menu_card w-[100%] mx-auto flex justify-between items-center border-t border-t-black py-3">
       <div className="item_text w-9/12 ">
-        <p className="font-semibold text-2xl text-red-400">
-          {data2.LoggedInUser}
-        </p>
+      
         <p className="font-bold text-lg ">{name}</p>
         <p className="font-semibold text-lg ">RS.{Math.round(price / 100)} </p>
         <p className="font-bold text-base  mt-2 text-green-600">
@@ -39,7 +37,7 @@ function ItemMenuCard({ data }) {
           alt="hello swiggy"
         />
         <button className="font-bold text-xl text-green-500 border bg-white px-7 py-2 rounded-lg absolute top-28 left-9 z-10 shadow-lg"
-        onClick={()=>handleAddItem(data.card.info)}
+        onClick={()=>handleAddItem(data)}
         >
           ADD
         </button>
