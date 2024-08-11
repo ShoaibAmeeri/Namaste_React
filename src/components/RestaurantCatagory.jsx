@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import ItemMenuCard from "./ItemMenuCard";
 
 function RestaurantCatagory({ data, showItems, setShowIndex }) {
+
   const clickHandle = () => {
     setShowIndex();
   };
-
-
 
   return (
     <div
